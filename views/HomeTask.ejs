@@ -1,0 +1,45 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body{
+            margin-top: 200px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(1, 139, 139);
+            color: white;
+        }
+        ul{
+            padding: 50px;
+        }
+        li{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is the Task that you wanted to edit!</h1>
+     <ul>
+         
+        <% task.forEach((t)=>{%>
+        
+        <li>
+            <form action="/edit/<%= t._id%>" method="put">
+            <input type="text" name="task" id="" placeholder="task"/>
+            <input type="text" name="desc" id="" placeholder="desc"/>
+            <button type="submit">Update</button>
+        </form>
+    </li>
+        <% }) %> 
+     </ul>
+     <button> return</button>
+</body>
+</html>

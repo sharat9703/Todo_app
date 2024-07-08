@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      rel="stylesheet"
+      href="../public/style.css"
+      mime-type="application/javascript"
+    /> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <!-- <script src="../public/todo.js"></script> -->
+    <title>Home</title>
+    <style>
+      body {
+        margin-top: 200px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgb(1, 139, 139);
+        color: white;
+      }
+      ul {
+        padding: 50px;
+      }
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>These are all the tasks you enlisted!</h1>
+    <ul>
+      <% tasks.forEach((task)=>{%>
+      <li>
+        <%= task.name %>
+        <span><%= task.desc %></span>
+        <span></span>
+        <span><form action="/api/tasks/delete/<%=task.name%>" method="post">
+          <button class="delete" id="<%=task._id%> ">delete</button>
+        </form>
+      </span>
+        <span><form action="" method="post"></form></span>
+      </li>
+      <% }) %>
+    </ul>
+    <h3>add a new task</h3>
+    <form action="/api/tasks/" method="post">
+      <input name="newTask" type="text" placeholder="Task" />
+      <input name="newTask_desc" type="text" placeholder="description" />
+      <button type="submit">add task</button>
+    </form>
+    <!-- <script>
+      $(document).ready(function () {
+      //   $("form").on("submit", function () {
+      //     var item = $("form input");
+      //     var todo = { item: item.val() };
+
+      //     $.ajax({
+      //       type: "POST",
+      //       url: "/api/tasks/",
+      //       data: todo,
+      //       success: function (data) {
+      //         //do something with the data via front-end framework
+      //         location.reload();
+      //       },
+      //     });
+
+      //     return false;
+      //   });
+      
+      
+            </script> -->
+  </body>
+</html>
